@@ -28,16 +28,16 @@ garaget och söka i det.
 I mer programmerings vänliga termer skall vi alltså som **minimum** ha:
 
 ```
-● En kollektion av fordon; klassen Garage.
-● En fordonsklass, klassen Vehicle.
-● Ett antal subklasser till fordon.
-● Ett användargränssnitt som låter oss använda funktionaliteten hos ett garage. Här
+* En kollektion av fordon; klassen Garage.
+* En fordonsklass, klassen Vehicle.
+* Ett antal subklasser till fordon.
+* Ett användargränssnitt som låter oss använda funktionaliteten hos ett garage. Här
 sker all interaktion med användaren.
-● En GarageHandler. För att abstrahera ett lager så att det inte finns någon direkt
+* En GarageHandler. För att abstrahera ett lager så att det inte finns någon direkt
 kontakt mellan användargränssnittet och garage klassen. Detta görs lämpligen
 genom en klass som hanterar funktionaliteten som gränssnittet behöver ha
 tillgång till.
-● Vi programmerar inte direkt mot konkreta typer så vi använder oss av Interfaces
+* Vi programmerar inte direkt mot konkreta typer så vi använder oss av Interfaces
 för det tex IUI, IHandler, IVehicle. (Tips är att bryta ut till interface när
 implementationen är klar om man tycker den här delen är svår)
 ```
@@ -45,21 +45,21 @@ implementationen är klar om man tycker den här delen är svår)
 ### Kravspecifikation
 
 Fordonen ska implementeras som klassen **Vehicle** och subklasser till den.
-● **Vehicle** innehåller samtliga egenskaper som ska finnas i samtliga fordonstyper.
+* **Vehicle** innehåller samtliga egenskaper som ska finnas i samtliga fordonstyper.
 T.ex. registreringsnummer, färg, antal hjul och andra egenskaper ni kan komma på.
-● Registreringsnumret är unikt
-● Det måste minst finnas följande subklasser:
-○ **Airplane**
-○ **Motorcycle**
-○ **Car**
-○ **Bus**
-○ **Boat**
-● Dessa skall implementera minst en egen egenskap var, t.ex:
-○ _Number of Engines_
-○ _Cylinder volume_
-○ _Fueltype (Gasoline/Diesel)_
-○ _Number of seats_
-○ _Lenght_
+* Registreringsnumret är unikt
+* Det måste minst finnas följande subklasser:
+ * **Airplane**
+ * **Motorcycle**
+ * **Car**
+ * **Bus**
+ * **Boat**
+* Dessa skall implementera minst en egen egenskap var, t.ex:
+  * _Number of Engines_
+  * _Cylinder volume_
+  * _Fueltype (Gasoline/Diesel)_
+  * _Number of seats_
+  * _Length_
 
 Själva garaget ska implementeras som en generisk samling av fordon:
 
@@ -89,29 +89,29 @@ Vi ska **EJ** använda oss av en **List<Vehicle>** internt i Garage klassen!!!!
 ### Funktionalitet
 
 Det ska gå att:
-● Lista samtliga parkerade fordon
-● Lista fordonstyper och hur många av varje som står i garaget
-● Lägga till och ta bort fordon ur garaget
-● Sätta en kapacitet (antal parkeringsplatser) vid instansieringen av ett nytt garage
-● Möjlighet att populera garaget med ett antal fordon från start.
-● Hitta ett specifikt fordon via registreringsnumret. Det ska gå fungera med både
+* Lista samtliga parkerade fordon
+* Lista fordonstyper och hur många av varje som står i garaget
+* Lägga till och ta bort fordon ur garaget
+* Sätta en kapacitet (antal parkeringsplatser) vid instansieringen av ett nytt garage
+* Möjlighet att populera garaget med ett antal fordon från start.
+* Hitta ett specifikt fordon via registreringsnumret. Det ska gå fungera med både
 ABC123 samt Abc123 eller AbC123.
-● Söka efter fordon utifrån en egenskap eller flera (alla möjliga kombinationer från
+* Söka efter fordon utifrån en egenskap eller flera (alla möjliga kombinationer från
 basklassen **Vehicle** ). Exempelvis:
-○ _Alla svarta fordon med fyra hjul._
-○ _Alla motorcyklar som är rosa och har 3 hjul._
-○ _Alla lastbilar_
-○ _Alla röda fordon_
-● Användaren ska få feedback på att saker gått bra eller dåligt. Till exempel när vi
+  * _Alla svarta fordon med fyra hjul._
+  * _Alla motorcyklar som är rosa och har 3 hjul._
+  * _Alla lastbilar_
+  * _Alla röda fordon_
+* Användaren ska få feedback på att saker gått bra eller dåligt. Till exempel när vi
 parkerat ett fordon vill vi få en bekräftelse på att fordonet är parkerat. Om det inte
 går vill användaren få veta varför.
 
 Programmet ska vara en konsolapplikation med ett textbaserat användargränssnitt.
 
 Från gränssnittet skall det gå att:
-● Navigera till **samtlig** funktionalitet från garage via gränssnittet
-● Skapa ett garage med en användar specificerad storlek
-● Det skall gå att stänga av applikationen från gränssnittet
+* Navigera till **samtlig** funktionalitet från garage via gränssnittet
+* Skapa ett garage med en användar specificerad storlek
+* Det skall gå att stänga av applikationen från gränssnittet
 
 Applikationen skall fel hantera indata på ett robust sätt, så att den **inte kraschar** vid
 felaktig inmatning eller användning.
