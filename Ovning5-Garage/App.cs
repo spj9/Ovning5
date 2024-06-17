@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ovning5_Garage
 {
-    public class Garage
+    public class App
     {
 
     }
