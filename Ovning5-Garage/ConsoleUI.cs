@@ -91,6 +91,7 @@ class ConsoleUI : IUI
         return Tuple.Create(vehicleType, regNr, wheelCount, color);
     }
 
+    // Ange färgen att söka efter. 
     private string PromptForColor()
     {
         Console.WriteLine("Vilken färg på fordonet?");
@@ -106,6 +107,8 @@ class ConsoleUI : IUI
         }
     }
 
+    // Metod för att ange antal hjul att söka efter. Läs input från konsolen och kontrollera om den är giltig. 
+    // Om så är fallet returnera värdet. Om inte, ge felmeddelande och fortsätt fråga användaren tills en giltig input givits.
     private uint PromptForWheelCount()
     {
         Console.WriteLine("Hur många hjul har fordonet?");
@@ -121,6 +124,8 @@ class ConsoleUI : IUI
         }
     }
 
+    // Metod för att ange fordonstyp att söka efter. Läs input från konsolen och kontrollera om den är giltig. 
+    // Om så är fallet returnera som en sträng. Om inte, ge felmeddelande och fortsätt fråga användaren tills en giltig input givits.
     public string PromptForVehicleType(bool permitAny = false)
     {
         Console.WriteLine("Ange typ av fordon:"
@@ -159,6 +164,8 @@ class ConsoleUI : IUI
         }
     }
 
+    // Metod för att ange reg.nr att söka efter. Läs input från konsolen och kontrollera om den är giltig. 
+    // Om så är fallet returnera som en sträng. Om inte, ge felmeddelande och fortsätt fråga användaren tills en giltig input givits.
     public string PromptForRegNr()
     {
         Console.WriteLine("Ange fordonets reg.nr:");
@@ -174,6 +181,8 @@ class ConsoleUI : IUI
         }
     }
 
+    // Metod för att ange bränsletyp att söka efter. Läs input från konsolen och kontrollera om den är giltig. 
+    // Om så är fallet returnera bränsletypen. Om inte, ge felmeddelande och fortsätt fråga användaren tills en giltig input givits.
     public FuelType PromptForFuelType()
     {
         Console.WriteLine("Ange fordonets bränsletyp:" + "\n1. Bensin" + "\n2. Diesel");
@@ -210,6 +219,8 @@ class ConsoleUI : IUI
         }
     }
 
+    // Metod för att ange färgen att söka efter. Läs input från konsolen och kontrollera om den är giltig. 
+    // Om så är fallet returnera som en sträng. Om inte, ge felmeddelande och fortsätt fråga användaren tills en giltig input givits.
     string IUI.PromptForColor()
     {
         Console.WriteLine("Vilken färg eftersökes? Ange \"Alla\" för att visa oavsett färg.");
@@ -226,6 +237,8 @@ class ConsoleUI : IUI
         }
     }
 
+    // Metod för att ange antal hjul att söka efter. Läs input från konsolen och kontrollera om den är giltig. 
+    // Om så är fallet returnera värdet. Om inte, ge felmeddelande och fortsätt fråga användaren tills en giltig input givits.
     public uint? PromptWheelCountToSearchFor()
     {
         Console.WriteLine("Ange antal hjul att söka efter. Ange \"Alla\" för att visa oavsett antal hjul.");
