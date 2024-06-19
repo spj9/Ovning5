@@ -1,9 +1,12 @@
+// Användargränssnitt (UI) för garagehanteringssystemet.
 interface IUI
 {
     double AskForDouble(string query = "", string successFeedback = "");
     FuelType AskForFuelType();
     uint AskForUint(string query = "", string successFeedback = "");
     Tuple<string, string, uint, string> AskForVehicleDetails();
+
+    // Visa huvudmenyn för användaren och returnera vald åtgärd.
     UserAction ShowMainMenu(bool garageAlreadyExists = true);
 
     string AskForRegNr();

@@ -1,11 +1,10 @@
+// Enums för användarinput
 public enum UserAction
-{
-    ListAll,
+{   ListAll,
     ListByCategory,
     Add,
     Remove,
     CreateNewGarage,
     FindByRegNr,
     SearchByAttr,
-    Populate,
-}
+    Populate,        }

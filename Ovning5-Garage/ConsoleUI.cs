@@ -16,6 +16,7 @@ class ConsoleUI : IUI
                                + "\n8. Sök fordon på reg.nr" );
         }
         Console.WriteLine("0. Avsluta");
+        Console.WriteLine("-----------------------");
 
         while (true)
         {
@@ -137,18 +138,18 @@ class ConsoleUI : IUI
             switch (input)
             {
                 case "1":
-                    return "Car";
+                    return "Bil";
                 case "2":
-                    return "Motorbike";
+                    return "Motorcykel";
                 case "3":
-                    return "Bus";
+                    return "Buss";
                 case "4":
-                    return "Airplane";
+                    return "Flygplan";
                 case "5":
-                    return "Boat";
+                    return "Båt";
                 case "6":
                     if (permitAny)
-                    { return "Any"; }
+                    { return "Alla"; }
                     else { Console.WriteLine("Felaktig inmatning!"); }
                     break;
                 default:
@@ -160,7 +161,7 @@ class ConsoleUI : IUI
 
     public string AskForRegNr()
     {
-        Console.WriteLine("Ange fordonets reg.nr");
+        Console.WriteLine("Ange fordonets reg.nr:");
         while (true)
         {
             var input = Console.ReadLine();

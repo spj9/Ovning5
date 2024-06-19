@@ -1,3 +1,4 @@
+// MC-klassen
 class Motorcykel : Vehicle
 {
     public uint TopSpeed { get; set; }

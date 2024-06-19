@@ -1,3 +1,4 @@
+// Båt-klassen
 class Båt : Vehicle
 {
     public uint Length { get; set; }

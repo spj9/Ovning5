@@ -1,3 +1,4 @@
+// Flygplansklassen
 class Flygplan : Vehicle
 {
     public double WingSpan { get; set; }

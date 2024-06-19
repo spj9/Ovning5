@@ -1,9 +1,11 @@
+// Enums för bränsletyper
 public enum FuelType
 {
     Diesel,
     Bensin
 }
 
+// Bil-klassen
 class Bil : Vehicle
 {
     public FuelType FuelType { get; set; }

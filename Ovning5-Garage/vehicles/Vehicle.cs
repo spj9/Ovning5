@@ -1,3 +1,5 @@
+// Abstrakt fordonsklass som implementerar IVehicle-gränssnittet. 
+// Gemensamma egenskaper; Reg.nr. Antal hjul samt fordonets färg.
 abstract class Vehicle : IVehicle
 {
     public string RegNr { get; set; }
@@ -11,6 +13,7 @@ abstract class Vehicle : IVehicle
         Color = color;
     }
 
+    // ToString
     public override string ToString()
     {
         return $"Fordonstyp: {this.GetType().Name}; Reg.nr: {RegNr}; Antal hjul: {WheelCount}; Färg: {Color}";

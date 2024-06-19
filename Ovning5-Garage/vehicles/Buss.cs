@@ -1,3 +1,4 @@
+// Buss-klassen
 class Buss : Vehicle
 {
     public uint SeatCount { get; set; }
