@@ -51,23 +51,23 @@ class Manager
     private void SearchByAttr()
     {
         System.Console.WriteLine("Här presenteras ett antal alternativ att söka på.\n");
-        string vehicleType = _conUI.AskForVehicleType(permitAny: true);
-        string color = _conUI.AskForColor();
-        uint? wheelCount = _conUI.AskForWheelCountToSearchFor();
+        string vehicleType = _conUI.PromptForVehicleType(permitAny: true);
+        string color = _conUI.PromptForColor();
+        uint? wheelCount = _conUI.PromptWheelCountToSearchFor();
         _handler.SearchByAttr(vehicleType, color, wheelCount);
     }
 
     // Sök på reg.nr
     private void FindByRegNr()
     {
-        string regNr = _conUI.AskForRegNr();
+        string regNr = _conUI.PromptForRegNr();
         _handler.FindByRegNr(regNr);
     }
 
     // Ta bort fordon
     private void RemoveVehicle()
     {
-        string regNr = _conUI.AskForRegNr();
+        string regNr = _conUI.PromptForRegNr();
         int slot = _handler.RemoveVehicle(regNr);
         if (slot == -1)
             { Console.WriteLine("Fordonet kan inte hittas i garaget"); }
@@ -83,7 +83,7 @@ class Manager
         switch (vehicleDetails.Item1)
         {
             case "Car":
-                FuelType fuelType = _conUI.AskForFuelType();
+                FuelType fuelType = _conUI.PromptForFuelType();
                 slot = _handler.AddVehicle(
                     new Bil(
                         vehicleDetails.Item2,
@@ -95,7 +95,7 @@ class Manager
                 PrintFeedBack(slot);
                 break;
             case "Motorbike":
-                uint topSpeed = _conUI.AskForUint(
+                uint topSpeed = _conUI.PromptForUint(
                     query: "Vilken är motorcykelns toppfart (km/tim)?"
                 );
                 slot = _handler.AddVehicle(
@@ -109,7 +109,7 @@ class Manager
                 PrintFeedBack(slot);
                 break;
             case "Bus":
-                uint seatCount = _conUI.AskForUint(query: "Hur många sittplatser har bussen?");
+                uint seatCount = _conUI.PromptForUint(query: "Hur många sittplatser har bussen?");
                 slot = _handler.AddVehicle(
                     new Buss(
                         vehicleDetails.Item2,
@@ -121,7 +121,7 @@ class Manager
                 PrintFeedBack(slot);
                 break;
             case "Airplane":
-                double wingSpan = _conUI.AskForDouble(query: "Vad är flygplanets vingspann?");
+                double wingSpan = _conUI.PromptForDouble(query: "Vad är flygplanets vingspann?");
                 slot = _handler.AddVehicle(
                     new Flygplan(
                         vehicleDetails.Item2,
@@ -133,7 +133,7 @@ class Manager
                 PrintFeedBack(slot);
                 break;
             case "Boat":
-                uint length = _conUI.AskForUint("Ange båtens längd (i fot):");
+                uint length = _conUI.PromptForUint("Ange båtens längd (i fot):");
                 slot = _handler.AddVehicle(
                     new Båt(
                         vehicleDetails.Item2,
@@ -162,7 +162,7 @@ class Manager
     // Skapa nytt garage
     void CreateNewGarage()
     {
-        uint capacity = _conUI.AskForUint(query: "Ange kapacitet för det nya garaget:", successFeedback: $"Ett nytt garage har skapats!");
+        uint capacity = _conUI.PromptForUint(query: "Ange kapacitet för det nya garaget:", successFeedback: $"Ett nytt garage har skapats!");
         _handler.Create(capacity);
         _garageCreated = true;
     }

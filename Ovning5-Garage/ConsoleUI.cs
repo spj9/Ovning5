@@ -10,8 +10,8 @@ class ConsoleUI : IUI
             Console.WriteLine("2. Skapa exempelfordon i garaget"
                                + "\n3. Lägg till ett nytt fordon"
                                + "\n4. Radera fordon"
-                               + "\n5. Lista fordon"
-                               + "\n6. Lista fordon per kategori"
+                               + "\n5. Lista alla fordon detaljerat"
+                               + "\n6. Lista alla fordon per kategori"
                                + "\n7. Sök fordon via egenskaper"
                                + "\n8. Sök fordon på reg.nr" );
         }
@@ -55,7 +55,7 @@ class ConsoleUI : IUI
     }
 
     // Validera och returnera ett positivt heltal inmatat av användaren.
-    public uint AskForUint(string query = "", string successFeedback = "")
+    public uint PromptForUint(string query = "", string successFeedback = "")
     {
         while (true)
         {
@@ -83,15 +83,15 @@ class ConsoleUI : IUI
 
     public Tuple<string, string, uint, string> AskForVehicleDetails()
     {
-        string vehicleType = AskForVehicleType();
-        string regNr = AskForRegNr();
-        uint wheelCount = AskForWheelCount();
-        string color = AskForColor();
+        string vehicleType = PromptForVehicleType();
+        string regNr = PromptForRegNr();
+        uint wheelCount = PromptForWheelCount();
+        string color = PromptForColor();
 
         return Tuple.Create(vehicleType, regNr, wheelCount, color);
     }
 
-    private string AskForColor()
+    private string PromptForColor()
     {
         Console.WriteLine("Vilken färg på fordonet?");
         while (true)
@@ -106,7 +106,7 @@ class ConsoleUI : IUI
         }
     }
 
-    private uint AskForWheelCount()
+    private uint PromptForWheelCount()
     {
         Console.WriteLine("Hur många hjul har fordonet?");
         while (true)
@@ -121,7 +121,7 @@ class ConsoleUI : IUI
         }
     }
 
-    public string AskForVehicleType(bool permitAny = false)
+    public string PromptForVehicleType(bool permitAny = false)
     {
         Console.WriteLine("Ange typ av fordon:"
                 + "\n1. Bil"
@@ -159,7 +159,7 @@ class ConsoleUI : IUI
         }
     }
 
-    public string AskForRegNr()
+    public string PromptForRegNr()
     {
         Console.WriteLine("Ange fordonets reg.nr:");
         while (true)
@@ -174,7 +174,7 @@ class ConsoleUI : IUI
         }
     }
 
-    public FuelType AskForFuelType()
+    public FuelType PromptForFuelType()
     {
         Console.WriteLine("Ange fordonets bränsletyp:" + "\n1. Bensin" + "\n2. Diesel");
 
@@ -195,7 +195,7 @@ class ConsoleUI : IUI
         }
     }
 
-    public double AskForDouble(string query = "", string successMsg = "")
+    public double PromptForDouble(string query = "", string successMsg = "")
     {
         while (true)
         {
@@ -210,7 +210,7 @@ class ConsoleUI : IUI
         }
     }
 
-    string IUI.AskForColor()
+    string IUI.PromptForColor()
     {
         Console.WriteLine("Vilken färg eftersökes? Ange \"Alla\" för att visa oavsett färg.");
 
@@ -226,9 +226,9 @@ class ConsoleUI : IUI
         }
     }
 
-    public uint? AskForWheelCountToSearchFor()
+    public uint? PromptWheelCountToSearchFor()
     {
-        Console.WriteLine("Antal hjul att söka efter. Ange \"Alla\" för att visa oavsett antal hjul.");
+        Console.WriteLine("Ange antal hjul att söka efter. Ange \"Alla\" för att visa oavsett antal hjul.");
 
         while (true)
         {
