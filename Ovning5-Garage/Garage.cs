@@ -11,14 +11,12 @@ class Garage<T> : IEnumerable
         _storage = new T[capacity];
     }
 
+    // Metoden itererar över fordonen i garaget och returnerar varje fordon i arrayen.
     public IEnumerator<T> GetEnumerator()
     {
         foreach (var item in _storage)
         {
-            if (item != null)
-            {
-                yield return item;
-            }
+            if (item != null) { yield return item; }
         }
     }
 
@@ -28,10 +26,7 @@ class Garage<T> : IEnumerable
     {
         foreach (var item in _storage)
         {
-            if (item != null)
-            {
-                action?.Invoke(item);
-            }
+            if (item != null) { action?.Invoke(item); }
         }
     }
 
@@ -39,23 +34,17 @@ class Garage<T> : IEnumerable
 
     public int Remove(string regNr)
     {
-        int idxToRemove = Array.IndexOf(
-            _storage.Select(v => v?.RegNr.ToUpper()).ToArray(),
-            regNr.ToUpper()
-        );
+        int idxToRemove = Array.IndexOf( _storage.Select(v => v?.RegNr.ToUpper()).ToArray(), regNr.ToUpper() );
 
         if (idxToRemove != -1)
         {
             _storage[idxToRemove] = default(T);
         }
-
         return idxToRemove;
     }
 
-    public T? Find(string regNr) =>
-        _storage.FirstOrDefault(v =>
-            v?.RegNr.Equals(regNr, StringComparison.OrdinalIgnoreCase) ?? false
-        );
+    // Hitta ett fordon i garaget utifrån dess reg.nr och returnera fordonet om det hittas, annars null.
+    public T? Find(string regNr) => _storage.FirstOrDefault(v => v?.RegNr.Equals(regNr, StringComparison.OrdinalIgnoreCase) ?? false );
 
     internal void Populate(T[] vehicles)
     {
@@ -65,24 +54,21 @@ class Garage<T> : IEnumerable
         }
     }
 
+    // Sök fordon i garaget baserat på deras typ, färg och antal hjul. Returnera en samling av matchande fordon.
     internal IEnumerable<T?> SearchByProps(string vehicleType, string color, uint? wheelCount)
     {
-        var firstSelection = vehicleType.Equals("any", StringComparison.OrdinalIgnoreCase)
+        var firstSelect = vehicleType.Equals("alla", StringComparison.OrdinalIgnoreCase)
             ? _storage
-            : _storage.Where(v =>
-                v != null
-                && v.GetType().Name.Equals(vehicleType, StringComparison.OrdinalIgnoreCase)
-            );
-        var secondSelection = color.Equals("any", StringComparison.OrdinalIgnoreCase)
-            ? firstSelection
-            : firstSelection.Where(v =>
-                v != null && v.Color.Equals(color, StringComparison.OrdinalIgnoreCase)
-            );
-        var thirdSelection =
-            wheelCount == null
-                ? secondSelection
-                : secondSelection.Where(v => v != null && v.WheelCount == wheelCount);
+            : _storage.Where(v => v != null && v.GetType().Name.Equals(vehicleType, StringComparison.OrdinalIgnoreCase));
 
-        return thirdSelection;
+        var secondSelect = color.Equals("alla", StringComparison.OrdinalIgnoreCase)
+            ? firstSelect
+            : firstSelect.Where(v => v != null && v.Color.Equals(color, StringComparison.OrdinalIgnoreCase));
+
+        var thirdSelect = wheelCount == null
+            ? secondSelect
+            : secondSelect.Where(v => v != null && v.WheelCount == wheelCount);
+
+        return thirdSelect;
     }
 }
